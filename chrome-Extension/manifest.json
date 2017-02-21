@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+    "name": "News",
+    "description": "Get the latest News at your browser",
+	"version": "1.0",
+    "browser_action": {
+		"default_icon": "icons/icon.png",
+		"default_popup": "pop_up.html"
+    },
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"css": ["bootstrap.min.css"],
+			"js": ["jquery-2.2.4.min.js", "bootstrap.min.js","myscript.js"],
+			"matches": [
+				"http://*/*",
+				"https://*/*",
+				"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"background": {
+		"persistent": false,
+		"page": "pop_up.html"
+	 },
+	"permissions": [
+		"activeTab","tabs", "http://*/*", "https://*/*", "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	]
+
+}
